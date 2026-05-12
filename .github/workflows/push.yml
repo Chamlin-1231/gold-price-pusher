@@ -1,0 +1,24 @@
+name: Daily Gold Price Push
+
+on:
+  schedule:
+    # 北京时间 9:00 = UTC 1:00
+    - cron: "0 1 * * *"
+  workflow_dispatch:  # allow manual trigger
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch gold price & push to WeCom
+        env:
+          ALAPI_TOKEN: ${{ secrets.ALAPI_TOKEN }}
+          ALAPI_MARKET: ${{ secrets.ALAPI_MARKET }}
+          WECOM_WEBHOOK_URL: ${{ secrets.WECOM_WEBHOOK_URL }}
+        run: python main.py
