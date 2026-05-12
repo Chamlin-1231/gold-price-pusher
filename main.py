@@ -79,14 +79,14 @@ def build_markdown(data: dict, market: str) -> str:
         lines.append("")
 
     # 蓝宝石 - not provided by this API
-    lines.append("## 蓝宝石")
-    lines.append("- 暂无实时行情数据（ALAPI 暂不提供）")
-    lines.append("")
+    # lines.append("## 蓝宝石")
+    # lines.append("- 暂无实时行情数据（ALAPI 暂不提供）")
+    # lines.append("")
 
     # 参考汇率
-    lines.append("## 参考汇率")
+    # lines.append("## 参考汇率")
     # lines.append(f"- 1 美元 ≈ `{exchange_rate}` 人民币")
-    lines.append("")
+    # lines.append("")
     lines.append(f"> *本数据由 ALAPI 提供，仅供参考*")
 
     return "\n".join(lines)
