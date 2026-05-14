@@ -1,9 +1,9 @@
 name: Daily Gold Price Push
 
 on:
-  schedule:
-    # 北京时间 09:03 = UTC 3:03（避开整点高峰期）
-    - cron: "*/5 * * * *"
+#  schedule:
+#    # 北京时间 09:03 = UTC 3:03（避开整点高峰期）
+#    - cron: "*/5 * * * *"
   workflow_dispatch:  # allow manual trigger
 
 jobs:
