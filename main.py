@@ -64,7 +64,8 @@ def build_markdown(data: dict, market: str) -> str:
         "",
     ]
 
-    items = data["data"]
+    METAL_ORDER = {"黄金": 0, "铂金": 1, "钯金": 2, "白银": 3}
+    items = sorted(data["data"], key=lambda x: METAL_ORDER.get(x["name"], 99))
     for item in items:
         name = item["name"]
         symbol = item["symbol"]
